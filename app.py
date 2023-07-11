@@ -32,7 +32,8 @@ def predict():
     final_input=scaler.transform(np.array(data).reshape(1,-1))
     print(final_input)
     prediction=model.predict(final_input)[0]
-    return render_template("index.html", prediction_text="The predicted life expectancy is {} years".format(prediction))
+    prediction = float(prediction)  # Convert prediction to float
+    return render_template("index.html", prediction_text="The predicted life expectancy is {:.2f} years".format(prediction))
 
 if __name__ == "__main__":
     app.run(debug=True)

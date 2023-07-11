@@ -1,11 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Data Entry Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    function showPrediction() {
+      var predictionText = "{{prediction_text}}";
+      if (predictionText !== "") {
+        alert(predictionText);
+      }
+    }
+  </script>
 </head>
-<body>
-    <h1>Hello</h1>
+<body onload="showPrediction()">
+  <div class="container">
+    <h1>Data Entry Form</h1>
+    <form id="dataForm" action="{{ url_for('predict')}}"method="post">
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+          <option value="0.0">Developing</option>
+          <option value="1.0">Developed</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="adultMortality">Adult Mortality:</label>
+        <input type="text" id="adultMortality" name="adultMortality" placeholder="Enter Adult Mortality">
+      </div>
+
+      <div class="form-group">
+        <label for="infantDeaths">Infant Deaths:</label>
+        <input type="text" id="infantDeaths" name="infantDeaths" placeholder="Enter Infant Deaths">
+      </div>
+
+      <div class="form-group">
+        <label for="alcohol">Alcohol:</label>
+        <input type="text" id="alcohol" name="alcohol" placeholder="Enter Alcohol">
+      </div>
+
+      <div class="form-group">
+        <label for="percentageExpenditure">Percentage Expenditure:</label>
+        <input type="text" id="percentageExpenditure" name="percentageExpenditure" placeholder="Enter Percentage Expenditure">
+      </div>
+
+      <div class="form-group">
+        <label for="hepatitisB">Hepatitis B:</label>
+        <input type="text" id="hepatitisB" name="hepatitisB" placeholder="Enter Hepatitis B">
+      </div>
+
+      <div class="form-group">
+        <label for="measles">Measles:</label>
+        <input type="text" id="measles" name="measles" placeholder="Enter Measles">
+      </div>
+
+      <div class="form-group">
+        <label for="bmi">BMI:</label>
+        <input type="text" id="bmi" name="bmi" placeholder="Enter BMI">
+      </div>
+
+      <div class="form-group">
+        <label for="underFiveDeaths">Under-Five Deaths:</label>
+        <input type="text" id="underFiveDeaths" name="underFiveDeaths" placeholder="Enter Under-Five Deaths">
+      </div>
+
+      <div class="form-group">
+        <label for="polio">Polio:</label>
+        <input type="text" id="polio" name="polio" placeholder="Enter Polio">
+      </div>
+
+      <div class="form-group">
+        <label for="totalExpenditure">Total Expenditure:</label>
+        <input type="text" id="totalExpenditure" name="totalExpenditure" placeholder="Enter Total Expenditure">
+      </div>
+
+      <div class="form-group">
+        <label for="diphtheria">Diphtheria:</label>
+        <input type="text" id="diphtheria" name="diphtheria" placeholder="Enter Diphtheria">
+      </div>
+
+      <div class="form-group">
+        <label for="hivAids">HIV/AIDS:</label>
+        <input type="text" id="hivAids" name="hivAids" placeholder="Enter HIV/AIDS">
+      </div>
+
+      <div class="form-group">
+        <label for="gdp">GDP:</label>
+        <input type="text" id="gdp" name="gdp" placeholder="Enter GDP">
+      </div>
+
+      <div class="form-group">
+        <label for="population">Population(x1000):</label>
+        <input type="text" id="population" name="population" placeholder="Enter Population">
+      </div>
+
+      <div class="form-group">
+        <label for="thinness1to19Years">Thinness 1-19 Years:</label>
+        <input type="text" id="thinness1to19Years" name="thinness1to19Years" placeholder="Enter Thinness 1-19 Years">
+      </div>
+
+      <div class="form-group">
+        <label for="thinness5to9Years">Thinness 5-9 Years:</label>
+        <input type="text" id="thinness5to9Years" name="thinness5to9Years" placeholder="Enter Thinness 5-9 Years">
+      </div>
+
+      <div class="form-group">
+        <label for="incomeComposition">Income Composition of Resources:</label>
+        <input type="text" id="incomeComposition" name="incomeComposition" placeholder="Enter Income Composition of Resources">
+      </div>
+
+      <div class="form-group">
+        <label for="schooling">Schooling:</label>
+        <input type="text" id="schooling" name="schooling" placeholder="Enter Schooling">
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+  {{prediction_text}}
 </body>
 </html>
+
+
