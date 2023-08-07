@@ -48,8 +48,7 @@ The model is trained using a machine learning algorithm called multiple linear r
 To install the life expectancy model, follow these steps:
 
 1. Clone the repository:
-git clone https://github.com/Oussamakyu/Life-Expectancy.git
-
+git clone https://github.com/benabbouosama/Life-Expectancy.git
 
 2. Activate the virtual environment:
 conda activate "Path to venv"
